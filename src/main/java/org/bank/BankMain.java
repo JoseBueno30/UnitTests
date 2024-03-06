@@ -1,4 +1,4 @@
-package bank;
+package org.bank;
 
 public class BankMain {
 
