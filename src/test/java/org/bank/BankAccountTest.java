@@ -1,6 +1,9 @@
 package org.bank;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -65,6 +68,18 @@ public class BankAccountTest {
         assertEquals(expected, actual);
     }
 
+    @ParameterizedTest
+    @CsvSource({
+            "-10000, 0.001, 12",
+            "10000, -0.001, 12",
+            "10000, 0.001, -12"
+    })
+    void Payment_NegativeInputs_ThrowsIllegalArgumentException(double amount, double inte, int npayments){
+        assertThrows(IllegalArgumentException.class, ()->{
+            account.payment(amount, inte, npayments);
+        });
+    }
+
     @Test
     void Pending_MothZero_ReturnsAmount(){
         //Arrange
@@ -89,5 +104,18 @@ public class BankAccountTest {
         double actual = account.pending(total_amount,interest,npayments,month);
         //Assert
         assertEquals(expected, actual);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "-10000, 0.001, 12, 2",
+            "10000, -0.001, 12, 2",
+            "10000, 0.001, -12, 2",
+            "10000, 0.001, 12, -2"
+    })
+    void Pending_NegativeInputs_ThrowsIllegalArgumentException(double amount, double inte, int npayments, int month){
+        assertThrows(IllegalArgumentException.class, ()->{
+            account.pending(amount, inte, npayments, month);
+        });
     }
 }
