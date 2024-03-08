@@ -34,6 +34,7 @@ public class BankAccount {
     public double pending (double amount, double inte, int npayments, int month){
         if(amount < 0) throw new IllegalArgumentException("Amount cannot be negative");
         if(month < 0) throw new IllegalArgumentException("Month cannot be negative");
+        if(month > npayments) throw new IllegalArgumentException("Month cannot be grater than number of payments");
         double res;
         if(month==0){
             res=amount;
