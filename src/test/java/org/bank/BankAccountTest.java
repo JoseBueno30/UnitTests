@@ -107,6 +107,20 @@ public class BankAccountTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void Pending_MonthGreaterThanNumberOfPayments_ThrowsIllegalArgumentException(){
+        //Arrange
+        double amount = 10000;
+        double interest = 0.001;
+        int npayments = 12;
+        int month = 13;
+        //Act
+        //Assert
+        assertThrows(IllegalArgumentException.class, ()->{
+            account.pending(amount, interest, npayments, month);
+        });
+    }
+
     @ParameterizedTest
     @CsvSource({
             "-10000, 0.001, 12, 2",
