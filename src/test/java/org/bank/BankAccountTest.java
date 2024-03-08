@@ -72,6 +72,7 @@ public class BankAccountTest {
     @CsvSource({
             "-10000, 0.001, 12",
             "10000, -0.001, 12",
+            "10000, 0.001, 0",
             "10000, 0.001, -12"
     })
     void Payment_NegativeInputs_ThrowsIllegalArgumentException(double amount, double inte, int npayments){
@@ -110,6 +111,7 @@ public class BankAccountTest {
     @CsvSource({
             "-10000, 0.001, 12, 2",
             "10000, -0.001, 12, 2",
+            "10000, 0.001, 0, 2",
             "10000, 0.001, -12, 2",
             "10000, 0.001, 12, -2"
     })
