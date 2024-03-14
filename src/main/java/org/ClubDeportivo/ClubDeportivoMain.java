@@ -1,8 +1,6 @@
 package org.ClubDeportivo;
 
-import clubdeportivo.ClubDeportivo;
-import clubdeportivo.ClubException;
-import clubdeportivo.Grupo;
+import org.ClubDeportivo.clubdeportivo.*;
 
 public class ClubDeportivoMain {
 	public static void main(String[] args) {
