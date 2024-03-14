@@ -9,10 +9,10 @@ public class ClubDeportivo {
 	private static final int TAM = 10;
 
 	public ClubDeportivo(String nombre) throws ClubException {
-		this(nombre, TAM);
+		this(nombre, TAM); // tamaño por defecto
 	}
 
-	public ClubDeportivo(String nombre, int n) throws ClubException {
+	public ClubDeportivo(String nombre, int n) throws ClubException { // tu le dices que tamaño de grupo
 		if (n <= 0) {
 			throw new ClubException("ERROR: el club no puede crearse con un número de grupos 0 o negativo");
 		}
@@ -32,6 +32,7 @@ public class ClubDeportivo {
 	}
 
 	public void anyadirActividad(String[] datos) throws ClubException {
+		// TODO AÑADIR COMPROBANTE DE QUE LENGTH DE DATOS > 5
 		try {
 			int plazas = Integer.parseInt(datos[2]);
 			int matriculados = Integer.parseInt(datos[3]);
@@ -44,7 +45,7 @@ public class ClubDeportivo {
 	}
 
 	public void anyadirActividad(Grupo g) throws ClubException {
-		if (g==null){ // ADDME: anaydido para comprobar los grupos nulos
+		if (g == null) { // ADDME: anaydido para comprobar los grupos nulos
 			throw new ClubException("ERROR: el grupo es nulo");
 		}
 		int pos = buscar(g);
