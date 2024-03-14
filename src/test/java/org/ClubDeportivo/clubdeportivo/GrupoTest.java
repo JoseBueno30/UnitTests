@@ -1,14 +1,11 @@
-package org;
+package org.ClubDeportivo.clubdeportivo;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.ClubDeportivo.clubdeportivo.ClubException;
-import org.ClubDeportivo.clubdeportivo.Grupo;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-public class TestGrupo {
+public class GrupoTest {
     Grupo grupo;
 
     @ParameterizedTest
