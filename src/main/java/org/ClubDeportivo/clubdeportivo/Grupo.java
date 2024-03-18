@@ -14,6 +14,12 @@ public class Grupo {
 		if (matriculados>nplazas) {
 			throw new ClubException("ERROR: El número de plazas es menor que el de matriculados.");
 		}
+		if(codigo==null){
+			throw new ClubException("ERROR: El código es nulo.");
+		}
+		if(actividad==null){
+			throw new ClubException("ERROR: La actividad es nula.");
+		}
 		this.codigo=codigo;
 		this.actividad=actividad;
 		this.nplazas=nplazas;

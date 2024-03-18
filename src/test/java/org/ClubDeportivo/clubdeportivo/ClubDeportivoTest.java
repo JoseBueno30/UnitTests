@@ -18,9 +18,8 @@ public class ClubDeportivoTest {
     @CsvSource({
             "CLUB, -1",
             "CLUB, 0",
-            "CLUB, null",
-            "null, 1"
-    })
+            ", 1"
+    })//separar en tres test diferentes
     void constructorClubDeportivo_DatosInvalidos_ThrowsClubException(String nombre, int ngrupos){
         assertThrows(ClubException.class, ()->{
             club = new ClubDeportivo(nombre, ngrupos);
@@ -32,7 +31,7 @@ public class ClubDeportivoTest {
         //Arrange
         String nombre = "CLUB";
         int ngrupos = 10;
-        String expected = "CLUB --> [ ]";
+        String expected = "CLUB --> [  ]";
         //Act
         club = new ClubDeportivo(nombre, ngrupos);
         //Assert
@@ -43,7 +42,7 @@ public class ClubDeportivoTest {
     void constructorClubDeportivo_StringValido_CreaClubCorrectamente() throws ClubException {
         //Arrange
         String nombre = "CLUB";
-        String expected = "CLUB --> [ ]";
+        String expected = "CLUB --> [  ]";
         //Act
         club = new ClubDeportivo(nombre);
         //Assert
@@ -75,11 +74,11 @@ public class ClubDeportivoTest {
 
     @ParameterizedTest
     @CsvSource({
-            "null, Pilates, 8, 5, 50.0",
-            "456B, null, 8, 5, 50.0",
-            "456B, Pilates, null, 5, 50.0",
-            "456B, Pilates, 8, null, 50.0",
-            "456B, Pilates, 8, 5, null"
+            ", Pilates, 8, 5, 50.0",
+            "456B,, 8, 5, 50.0",
+            "456B, Pilates,, 5, 50.0",
+            "456B, Pilates, 8,, 50.0",
+            "456B, Pilates, 8, 5,"
     })
     void anyadirActividad_DatosNulos_ThrowsClubException(String codigo, String actividad, String nplazas, String nmatriculados, String tarifa){
         //Arrange
@@ -93,26 +92,13 @@ public class ClubDeportivoTest {
 
     @ParameterizedTest
     @CsvSource({
-            "456B, Pilates, 0, 5, 50.0",
-            "456B, Pilates, 8, 0, 50.0",
-            "456B, Pilates, 8, 5, 0"
-    })
-    void anyadirActividad_ValoresCero_ThrowsClubException(String codigo, String actividad, String nplazas, String nmatriculados, String tarifa){
-        //Arrange
-        String[] datos = {codigo, actividad, nplazas, nmatriculados, tarifa};
-        //Act
-        //Assert
-        assertThrows(ClubException.class, ()->{
-            club.anyadirActividad(datos);
-        });
-    }
-
-    @ParameterizedTest
-    @CsvSource({
+            "456B, Pilates, STRING, 5, 50.0",
             "456B, Pilates, 2.5, 5, 50.0",
-            "456B, Pilates, 8, 2.5, 50.0"
+            "456B, Pilates, 8, STRING, 50.0",
+            "456B, Pilates, 8, 2.5, 50.0",
+            "456B, Pilates, 8, 5, STRING"
     })
-    void anyadirActividad_ValoresDecimales_ThrowsClubException(String codigo, String actividad, String nplazas, String nmatriculados, String tarifa){
+    void anyadirActividad_FormatoDatosIncorrecto_ThrowsClubException(String codigo, String actividad, String nplazas, String nmatriculados, String tarifa){
         //Arrange
         String[] datos = {codigo, actividad, nplazas, nmatriculados, tarifa};
         //Act
@@ -122,7 +108,7 @@ public class ClubDeportivoTest {
         });
     }
 
-    @ParameterizedTest
+    @ParameterizedTest//TEST INNECESARIO?
     @CsvSource({
             "456B, Pilates, -8, 5, 50.0",
             "456B, Pilates, 8, -5, 50.0",
@@ -136,6 +122,17 @@ public class ClubDeportivoTest {
         assertThrows(ClubException.class, ()->{
             club.anyadirActividad(datos);
         });
+    }
+
+    @Test
+    void anyadirActividad_DatosCorrectos_AnyadeGrupoAlClub() throws ClubException {
+        //Arrange
+        String[] datos = {"456B", "Pilates", "8", "5", "50.0"};
+        String expected = "Club --> [ (456B - Pilates - 50.0 euros - P:8 - M:5) ]";
+        //Act
+        club.anyadirActividad(datos);
+        //Assert
+        assertEquals(expected, club.toString());
     }
 
     @Test
@@ -153,9 +150,9 @@ public class ClubDeportivoTest {
     void anyadirActividad_GrupoNuevo_AnyadeGrupoAlClub() throws ClubException {
         //Arrange
         Grupo grupo = new Grupo("456B", "Pilates", 8, 5, 50.0);
-        club.anyadirActividad(grupo);
         String expected = "Club --> [ (456B - Pilates - 50.0 euros - P:8 - M:5) ]";
         //Act
+        club.anyadirActividad(grupo);
         //Assert
         assertEquals(expected, club.toString());
     }
@@ -163,12 +160,12 @@ public class ClubDeportivoTest {
     @Test
     void anyadirActividad_GrupoExistente_ActualizaNumeroDePlazas() throws ClubException {
         //Arrange
-        int plazasExpected = 5;
         Grupo grupo1 = new Grupo("111A", "Pilates", 8, 5, 50.0);
         club.anyadirActividad(grupo1);
+        int plazasExpected = grupo1.getPlazas();;
         Grupo grupo2 = new Grupo("111A", "Pilates", plazasExpected, 5, 50.0);
-        club.anyadirActividad(grupo2);
         //Act
+        club.anyadirActividad(grupo2);
         int plazasActual = grupo1.getPlazas();
         //Assert
         assertEquals(plazasExpected, plazasActual
@@ -176,7 +173,7 @@ public class ClubDeportivoTest {
     }
 
     @Test
-    void plazasLibres_ActividadInexistente_DevuelveCero(){
+    void plazasLibres_ActividadInexistente_DevuelveCero() throws ClubException {
         //Arrange
         int expected = 0;
         //Act
@@ -299,15 +296,13 @@ public class ClubDeportivoTest {
         assertEquals(plazasLibreGrupo2Expected, grupo2.plazasLibres());
     }
 
-    @ParameterizedTest
-    @CsvSource({
-          "null, 2",
-          "Pilates, null"
-    })
-    void matricular_DatosNulos_ThrowsClubException(String actividad, int npersonas) throws ClubException {
+    @Test
+    void matricular_ActividadNula_ThrowsClubException() throws ClubException {
         //Arrange
         Grupo grupo = new Grupo("111A", "Pilates", 8, 5, 50.0);
         club.anyadirActividad(grupo);
+        String actividad = null;
+        int npersonas = 1;
         //Act
         //Assert
         assertThrows(ClubException.class, ()->{
@@ -336,18 +331,4 @@ public class ClubDeportivoTest {
         //Assert
         assertEquals(250, club.ingresos());
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

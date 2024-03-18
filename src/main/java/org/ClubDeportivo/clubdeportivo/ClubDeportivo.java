@@ -13,6 +13,9 @@ public class ClubDeportivo {
 	}
 
 	public ClubDeportivo(String nombre, int n) throws ClubException {
+		if(nombre == null){
+			throw new ClubException("ERROR: el club no puede crearse con un número de grupos 0 o negativo");
+		}
 		if (n <= 0) {
 			throw new ClubException("ERROR: el club no puede crearse con un número de grupos 0 o negativo");
 		}
@@ -32,13 +35,17 @@ public class ClubDeportivo {
 	}
 
 	public void anyadirActividad(String[] datos) throws ClubException {
+		if(datos.length < 5){
+			throw new ClubException("ERROR: No hay sufiecientes datos");
+		}
+
 		try {
 			int plazas = Integer.parseInt(datos[2]);
 			int matriculados = Integer.parseInt(datos[3]);
 			double tarifa = Double.parseDouble(datos[4]);
 			Grupo g = new Grupo(datos[0], datos[1], plazas, matriculados, tarifa);
 			anyadirActividad(g);
-		} catch (NumberFormatException e) {
+		} catch (NumberFormatException | NullPointerException e) {
 			throw new ClubException("ERROR: formato de número incorrecto");
 		}
 	}
@@ -56,7 +63,10 @@ public class ClubDeportivo {
 		}
 	}
 
-	public int plazasLibres(String actividad) {
+	public int plazasLibres(String actividad) throws ClubException {
+		if(actividad == null){
+			throw new ClubException("ERROR: actividad nula");
+		}
 		int p = 0;
 		int i = 0;
 		while (i < ngrupos) {
@@ -69,6 +79,9 @@ public class ClubDeportivo {
 	}
 
 	public void matricular(String actividad, int npersonas) throws ClubException {
+		if(actividad == null){
+			throw new ClubException("ERROR: actividad nula");
+		}
 		int plazas = plazasLibres(actividad);
 		if (plazas < npersonas) {
 			throw new ClubException("ERROR: no hay suficientes plazas libres para esa actividad en el club.");
