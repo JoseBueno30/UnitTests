@@ -75,26 +75,60 @@ public class ClubDeportivoTest {
 
     @ParameterizedTest
     @CsvSource({
-            //valores nulos
             "null, Pilates, 8, 5, 50.0",
             "456B, null, 8, 5, 50.0",
             "456B, Pilates, null, 5, 50.0",
             "456B, Pilates, 8, null, 50.0",
-            "456B, Pilates, 8, 5, null",
-            //valores a 0
+            "456B, Pilates, 8, 5, null"
+    })
+    void anyadirActividad_DatosNulos_ThrowsClubException(String codigo, String actividad, String nplazas, String nmatriculados, String tarifa){
+        //Arrange
+        String[] datos = {codigo, actividad, nplazas, nmatriculados, tarifa};
+        //Act
+        //Assert
+        assertThrows(ClubException.class, ()->{
+            club.anyadirActividad(datos);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
             "456B, Pilates, 0, 5, 50.0",
             "456B, Pilates, 8, 0, 50.0",
-            "456B, Pilates, 8, 5, 0",
-            //valores double
+            "456B, Pilates, 8, 5, 0"
+    })
+    void anyadirActividad_ValoresCero_ThrowsClubException(String codigo, String actividad, String nplazas, String nmatriculados, String tarifa){
+        //Arrange
+        String[] datos = {codigo, actividad, nplazas, nmatriculados, tarifa};
+        //Act
+        //Assert
+        assertThrows(ClubException.class, ()->{
+            club.anyadirActividad(datos);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
             "456B, Pilates, 2.5, 5, 50.0",
-            "456B, Pilates, 8, 2.5, 50.0",
-            "456B, Pilates, 8, 5, 2.5",
-            //valores negativos
+            "456B, Pilates, 8, 2.5, 50.0"
+    })
+    void anyadirActividad_ValoresDecimales_ThrowsClubException(String codigo, String actividad, String nplazas, String nmatriculados, String tarifa){
+        //Arrange
+        String[] datos = {codigo, actividad, nplazas, nmatriculados, tarifa};
+        //Act
+        //Assert
+        assertThrows(ClubException.class, ()->{
+            club.anyadirActividad(datos);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
             "456B, Pilates, -8, 5, 50.0",
             "456B, Pilates, 8, -5, 50.0",
             "456B, Pilates, 8, 5, -50.0"
     })
-    void anyadirActividad_StringDatosInvalidos_ThrowsClubException(String codigo, String actividad, String nplazas, String nmatriculados, String tarifa){
+    void anyadirActividad_ValoresNegativos_ThrowsClubException(String codigo, String actividad, String nplazas, String nmatriculados, String tarifa){
         //Arrange
         String[] datos = {codigo, actividad, nplazas, nmatriculados, tarifa};
         //Act
