@@ -3,9 +3,12 @@ package org.ClubDeportivo.clubdeportivo;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @author Marta Granado Rodríguez
+ * @author José Ángel Bueno Ruiz
+ */
 public class ClubDeportivoAltoRendimientoTest {
     ClubDeportivoAltoRendimiento club;
 

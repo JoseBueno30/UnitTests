@@ -1,6 +1,9 @@
 package org.ClubDeportivo.clubdeportivo;
 
-
+/**
+ * @author Marta Granado Rodríguez
+ * @author José Ángel Bueno Ruiz
+ */
 public class ClubDeportivoAltoRendimiento extends ClubDeportivo{
 	private int maximoPersonasGrupo;
 	private double incremento;

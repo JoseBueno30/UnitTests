@@ -2,6 +2,10 @@ package org.ClubDeportivo;
 
 import org.ClubDeportivo.clubdeportivo.*;
 
+/**
+ * @author Marta Granado Rodríguez
+ * @author José Ángel Bueno Ruiz
+ */
 public class ClubDeportivoMain {
 	public static void main(String[] args) {
 		String[] grupo1 = { "123A", "Kizomba", "10", "10", "25.0" };

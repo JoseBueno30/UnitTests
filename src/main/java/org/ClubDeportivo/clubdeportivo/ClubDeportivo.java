@@ -2,6 +2,10 @@ package org.ClubDeportivo.clubdeportivo;
 
 import java.util.StringJoiner;
 
+/**
+ * @author Marta Granado Rodríguez
+ * @author José Ángel Bueno Ruiz
+ */
 public class ClubDeportivo {
 	private String nombre;
 	private int ngrupos;

@@ -6,6 +6,10 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @author Marta Granado Rodríguez
+ * @author José Ángel Bueno Ruiz
+ */
 public class ClubDeportivoTest {
     ClubDeportivo club;
 
@@ -161,6 +165,8 @@ public class ClubDeportivoTest {
     @Test
     void plazasLibres_ActividadInexistente_DevuelveCero() throws ClubException {
         //Arrange
+        Grupo grupo = new Grupo("111A", "Atletismo", 10, 5, 50.0);
+        club.anyadirActividad(grupo);
         int expected = 0;
         //Act
         int actual = club.plazasLibres("Pilates");
@@ -250,23 +256,26 @@ public class ClubDeportivoTest {
     @Test
     void matricular_NPersonasConPlazasDisponiblesEnVariosGrupos_ReduceNPlazasDisponibles() throws ClubException {//DIVIDIR EN TRES TESTS DIFERENTES?
         //Arrange
-        int plazas1 = 8;
+        int plazas1 = 5;
         int plazas2 = 8;
+        int plazas3 = 8;
         int npersonas = 12;
-        Grupo grupo1 = new Grupo("111A", "Pilates", plazas1, 0, 50.0);
+        Grupo grupo1 = new Grupo("111A", "Atletismo", plazas1, 0, 50.0);
         club.anyadirActividad(grupo1);
-        Grupo grupo2 = new Grupo("111B", "Pilates", plazas2, 0, 50.0);
+        Grupo grupo2 = new Grupo("111A", "Pilates", plazas2, 0, 50.0);
         club.anyadirActividad(grupo2);
+        Grupo grupo3 = new Grupo("111B", "Pilates", plazas3, 0, 50.0);
+        club.anyadirActividad(grupo3);
 
         int plazasLibresClubExpected = club.plazasLibres("Pilates") - npersonas;
-        int plazasLibresGrupo1Expected = 0;
-        int plazasLibreGrupo2Expected = plazas2 - (npersonas - plazas1);
+        int plazasLibresGrupo2Expected = 0;
+        int plazasLibreGrupo3Expected = plazas3 - (npersonas - plazas2);
         //Act
         club.matricular("Pilates", npersonas);
         //Assert
         assertEquals(plazasLibresClubExpected, club.plazasLibres("Pilates"));
-        assertEquals(plazasLibresGrupo1Expected, grupo1.plazasLibres());
-        assertEquals(plazasLibreGrupo2Expected, grupo2.plazasLibres());
+        assertEquals(plazasLibresGrupo2Expected, grupo2.plazasLibres());
+        assertEquals(plazasLibreGrupo3Expected, grupo3.plazasLibres());
     }
 
     @Test
@@ -284,7 +293,7 @@ public class ClubDeportivoTest {
     }
 
     @Test
-    void matricular_Actividadinexistente_ThrowsClubException() throws ClubException {
+    void matricular_ActividadInexistente_ThrowsClubException() throws ClubException {
         //Arrange
         String actividad = "Pilates";
         int npersonas = 1;

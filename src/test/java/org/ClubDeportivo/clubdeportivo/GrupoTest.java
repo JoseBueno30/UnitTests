@@ -4,9 +4,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @author Marta Granado Rodríguez
+ * @author José Ángel Bueno Ruiz
+ */
 public class GrupoTest {
     Grupo grupo;
 
@@ -198,6 +201,20 @@ public class GrupoTest {
         Grupo grupo2 = new Grupo("456A", "Yoga", 15, 5, 40.0);
 
         assertFalse(grupo1.equals(grupo2));
+    }
+
+    @Test
+    public void equals_ObjetoNulo_DevuelveFalso() throws ClubException {
+        Grupo grupo1 = new Grupo("456B", "Pilates", 20, 10, 50.0);
+
+        assertFalse(grupo1.equals(null));
+    }
+
+    @Test
+    public void equals_ObjetoTipoDiferente_DevuelveFalso() throws ClubException {
+        Grupo grupo1 = new Grupo("456B", "Pilates", 20, 10, 50.0);
+
+        assertFalse(grupo1.equals("String"));
     }
 
     @Test

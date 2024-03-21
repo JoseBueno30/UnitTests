@@ -1,5 +1,9 @@
 package org.ClubDeportivo.clubdeportivo;
 
+/**
+ * @author Marta Granado Rodríguez
+ * @author José Ángel Bueno Ruiz
+ */
 public class Grupo {
 	private String codigo;
 	private String actividad;
