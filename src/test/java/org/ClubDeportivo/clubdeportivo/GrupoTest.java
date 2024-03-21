@@ -1,5 +1,6 @@
 package org.ClubDeportivo.clubdeportivo;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -11,21 +12,43 @@ public class GrupoTest {
 
     @ParameterizedTest
     @CsvSource({
-            "'456B', 'Pilates', -8, 5, 50.0",
-            "'456B', 'Pilates', 8, -5, 50.0",
-            "'456B', 'Pilates', 8, 5, -50.0",
-            "'456B', 'Pilates', 8, 10, 50.0"
+            ", Pilates, 8, 5, 50.0",
+            "456B,, 8, 5, 50.0",
 
     })
-    public void constructorGrupo_ValoresNegativos_ThrowsClubException(String codigo, String actividad, int nplazas, int matriculados,
-            double tarifa) {
+    public void constructorGrupo_ValoresNulos_ThrowsClubException(String codigo, String actividad, int nplazas, int matriculados, double tarifa) {
+        assertThrows(ClubException.class, () -> {
+            grupo = new Grupo(codigo, actividad, nplazas, matriculados, tarifa);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "'456B', 'Pilates', -8, 5, 50.0",
+            "'456B', 'Pilates', 8, -5, 50.0",
+            "'456B', 'Pilates', 8, 5, -50.0"
+
+    })
+    public void constructorGrupo_ValoresNegativos_ThrowsClubException(String codigo, String actividad, int nplazas, int matriculados, double tarifa) {
+        assertThrows(ClubException.class, () -> {
+            grupo = new Grupo(codigo, actividad, nplazas, matriculados, tarifa);
+        });
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "'456B', 'Pilates', 0, 5, 50.0",
+            "'456B', 'Pilates', 8, 5, 0"
+
+    })
+    public void constructorGrupo_ValoresCero_ThrowsClubException(String codigo, String actividad, int nplazas, int matriculados, double tarifa) {
         assertThrows(ClubException.class, () -> {
             grupo = new Grupo(codigo, actividad, nplazas, matriculados, tarifa);
         });
     }
 
     @Test
-    public void contructorGrupo_MasMatriculadosDePlaza_ThrowsClubException(){
+    public void contructorGrupo_MasMatriculadosQuePlazas_ThrowsClubException(){
         String codigo = "456B" ;
         String actividad = "Pilates";
         int nplazas =8;
@@ -34,6 +57,20 @@ public class GrupoTest {
         assertThrows(ClubException.class, ()-> {
             grupo = new Grupo(codigo, actividad , nplazas, matriculados, tarifa);
         });
+    }
+
+    @Test
+    public void constructorGrupo_CreaGrupoCorrectamente() throws ClubException {
+        String codigo = "456B" ;
+        String actividad = "Pilates";
+        int nplazas =8;
+        int matriculados = 0;
+        double tarifa = 50.0;
+        String expected = "(456B - Pilates - 50.0 euros - P:8 - M:0)";
+
+        grupo = new Grupo(codigo, actividad, nplazas, matriculados, tarifa);
+
+        assertEquals(expected, grupo.toString());
     }
 
     @Test
@@ -54,29 +91,28 @@ public class GrupoTest {
     }
 
     @Test
-    public void plazasLibres_DevuelveValorCorrecto() throws ClubException{
-        String codigo = "456B";
-        String actividad = "Pilates";
-        int nplazas = 20;
-        int matriculados = 10;
-        double tarifa = 50.0;
-        grupo = new Grupo(codigo, actividad, nplazas, matriculados, tarifa);
+    public void plazasLibres_DevuelveValorCorrecto() throws ClubException {
+        grupo = new Grupo("456B", "Pilates", 20, 10, 50.0);
+        int plazasLibresExpected = grupo.getPlazas()-grupo.getMatriculados();
 
         int plazasLibres = grupo.plazasLibres();
 
-        assertEquals((nplazas-matriculados), plazasLibres);
+        assertEquals(plazasLibresExpected, plazasLibres);
     }
 
     @Test
-    public void actualizarPlazas_NumeroNegativoOCeroDePlazas_ThrowsClubException() throws ClubException {
+    public void actualizarPlazas_CeroDePlazas_ThrowsClubException() throws ClubException {
         grupo = new Grupo("456B", "Pilates", 20, 10, 50.0);
-
-        assertThrows(ClubException.class, ()-> {
-            grupo.actualizarPlazas(-5);
-        });
-
         assertThrows(ClubException.class, ()-> {
             grupo.actualizarPlazas(0);
+        });
+    }
+
+    @Test
+    public void actualizarPlazas_PlazasNegativas_ThrowsClubException() throws ClubException {
+        grupo = new Grupo("456B", "Pilates", 20, 10, 50.0);
+        assertThrows(ClubException.class, ()-> {
+            grupo.actualizarPlazas(-5);
         });
     }
 
@@ -90,27 +126,31 @@ public class GrupoTest {
     }
     @Test
     public void actualizarPlazas_DevuelveValorCorrecto() throws ClubException {
-        Grupo grupo = new Grupo("456B", "Pilates", 20, 10, 50.0);
-
+        grupo = new Grupo("456B", "Pilates", 20, 10, 50.0);
         grupo.actualizarPlazas(25);
 
         assertEquals(25, grupo.getPlazas());
     }
 
     @Test
-    public void matricular_NumeroNegativoOCeroDePlazas_ThrowsClubException() throws ClubException {
+    public void matricular_CeroPersonas_ThrowsClubException() throws ClubException {
         grupo = new Grupo("456B", "Pilates", 20, 10, 50.0);
-
-        assertThrows(ClubException.class, ()-> {
-            grupo.matricular(-5);
-        });
         assertThrows(ClubException.class, ()-> {
             grupo.matricular(0);
         });
     }
 
     @Test
-    public void matricular_MenosPlazasLibresQueMatriculados_ThrowsClubException() throws ClubException {
+    public void matricular_PersonasNegativas_ThrowsClubException() throws ClubException {
+        grupo = new Grupo("456B", "Pilates", 20, 10, 50.0);
+
+        assertThrows(ClubException.class, ()-> {
+            grupo.matricular(-5);
+        });
+    }
+
+    @Test
+    public void matricular_NPersonasSinPlazasDisponibles_ThrowsClubException() throws ClubException {
         grupo = new Grupo("456B", "Pilates", 20, 18, 50.0);
 
         int plazasLibres = grupo.plazasLibres();
@@ -126,22 +166,21 @@ public class GrupoTest {
         Grupo grupo = new Grupo("456B", "Pilates", 20, nmatriculados, 50.0);
 
         grupo.matricular(5);
-        assertEquals(15, nmatriculados);
+        assertEquals(15, grupo.getMatriculados());
     }
 
     @Test
     public void toString_DevuelveValorCorrecto() throws ClubException{
         grupo = new Grupo("456B", "Pilates", 20, 10, 50.0);
 
-        String toStringGrupo = grupo.toString();
+        String expected = "(456B - Pilates - 50.0 euros - P:20 - M:10)";
 
-        assertEquals("(456B - Pilates - 50.0 euros - P:20 - M:10)", toStringGrupo);
+        assertEquals(expected, grupo.toString());
     }
 
     @Test
     public void equals_MismaInstancia_DevuelveValorCorrecto() throws ClubException {
-        Grupo grupo = new Grupo("456B", "Pilates", 20, 10, 50.0);
-
+        grupo = new Grupo("456B", "Pilates", 20, 10, 50.0);
         assertTrue(grupo.equals(grupo));
     }
 
