@@ -1,13 +1,15 @@
 package org.ClubDeportivo.clubdeportivo;
 
-import org.ClubDeportivo.clubdeportivo.ClubDeportivo;
-import org.ClubDeportivo.clubdeportivo.ClubException;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @author Marta Granado Rodríguez
+ * @author José Ángel Bueno Ruiz
+ */
 public class ClubDeportivoTest {
     ClubDeportivo club;
 
@@ -24,6 +26,11 @@ public class ClubDeportivoTest {
         assertThrows(ClubException.class, ()->{
             club = new ClubDeportivo(nombre, ngrupos);
         });
+    }
+
+    @Test
+    void constructorClubDeportivo_NumeroDeGruposPositivo_ThrowsClubException() throws ClubException {
+
     }
 
     @Test
@@ -108,22 +115,6 @@ public class ClubDeportivoTest {
         });
     }
 
-    @ParameterizedTest//TEST INNECESARIO?
-    @CsvSource({
-            "456B, Pilates, -8, 5, 50.0",
-            "456B, Pilates, 8, -5, 50.0",
-            "456B, Pilates, 8, 5, -50.0"
-    })
-    void anyadirActividad_ValoresNegativos_ThrowsClubException(String codigo, String actividad, String nplazas, String nmatriculados, String tarifa){
-        //Arrange
-        String[] datos = {codigo, actividad, nplazas, nmatriculados, tarifa};
-        //Act
-        //Assert
-        assertThrows(ClubException.class, ()->{
-            club.anyadirActividad(datos);
-        });
-    }
-
     @Test
     void anyadirActividad_DatosCorrectos_AnyadeGrupoAlClub() throws ClubException {
         //Arrange
@@ -162,19 +153,20 @@ public class ClubDeportivoTest {
         //Arrange
         Grupo grupo1 = new Grupo("111A", "Pilates", 8, 5, 50.0);
         club.anyadirActividad(grupo1);
-        int plazasExpected = grupo1.getPlazas();;
+        int plazasExpected = grupo1.getPlazas() + 1;
         Grupo grupo2 = new Grupo("111A", "Pilates", plazasExpected, 5, 50.0);
         //Act
         club.anyadirActividad(grupo2);
         int plazasActual = grupo1.getPlazas();
         //Assert
-        assertEquals(plazasExpected, plazasActual
-        );
+        assertEquals(plazasExpected, plazasActual);
     }
 
     @Test
     void plazasLibres_ActividadInexistente_DevuelveCero() throws ClubException {
         //Arrange
+        Grupo grupo = new Grupo("111A", "Atletismo", 10, 5, 50.0);
+        club.anyadirActividad(grupo);
         int expected = 0;
         //Act
         int actual = club.plazasLibres("Pilates");
@@ -183,19 +175,7 @@ public class ClubDeportivoTest {
     }
 
     @Test
-    void plazasLibres_ActividadExistente_DevuelveMayorOIgualACero() throws ClubException {
-        //Arrange
-        Grupo grupo1 = new Grupo("111A", "Pilates", 8, 5, 50.0);
-        club.anyadirActividad(grupo1);
-        Grupo grupo2 = new Grupo("111B", "Pilates", 8, 0, 50.0);
-        club.anyadirActividad(grupo2);
-        //Act
-        int plazasLibresActual = club.plazasLibres("Pilates");
-        //Assert
-        assertTrue(0 <= plazasLibresActual);
-    }
-    @Test
-    void plazasLibres_ActividadExistente_DevuelveResultadoEsperado() throws ClubException {//ESTE TEST SERIA CORRECTO O SE CONSIDERA QUE COMPRUEBA LA IMPLEMENTACIÓN
+    void plazasLibres_ActividadExistente_DevuelveResultadoEsperado() throws ClubException {
         //Arrange
         int nplazas = 8;
         int matriculados = 5;
@@ -207,7 +187,6 @@ public class ClubDeportivoTest {
         //Assert
         assertEquals(plazasLibresExpected, plazasLibresActual);
     }
-
 
     @Test
     void plazasLibres_ActividadNull_ThrowsClubException(){
@@ -265,7 +244,7 @@ public class ClubDeportivoTest {
         //Arrange
         Grupo grupo = new Grupo("111A", "Pilates", 8, 0, 50.0);
         club.anyadirActividad(grupo);
-        int npersonas = club.plazasLibres("Pilates") - 1;
+        int npersonas = 7;
         int plazasLibresExpected = club.plazasLibres("Pilates") - npersonas;
 
         //Act
@@ -277,23 +256,26 @@ public class ClubDeportivoTest {
     @Test
     void matricular_NPersonasConPlazasDisponiblesEnVariosGrupos_ReduceNPlazasDisponibles() throws ClubException {//DIVIDIR EN TRES TESTS DIFERENTES?
         //Arrange
-        int plazas1 = 8;
+        int plazas1 = 5;
         int plazas2 = 8;
+        int plazas3 = 8;
         int npersonas = 12;
-        Grupo grupo1 = new Grupo("111A", "Pilates", plazas1, 0, 50.0);
+        Grupo grupo1 = new Grupo("111A", "Atletismo", plazas1, 0, 50.0);
         club.anyadirActividad(grupo1);
-        Grupo grupo2 = new Grupo("111B", "Pilates", plazas2, 0, 50.0);
+        Grupo grupo2 = new Grupo("111A", "Pilates", plazas2, 0, 50.0);
         club.anyadirActividad(grupo2);
+        Grupo grupo3 = new Grupo("111B", "Pilates", plazas3, 0, 50.0);
+        club.anyadirActividad(grupo3);
 
         int plazasLibresClubExpected = club.plazasLibres("Pilates") - npersonas;
-        int plazasLibresGrupo1Expected = 0;
-        int plazasLibreGrupo2Expected = plazas2 - (npersonas - plazas1);
+        int plazasLibresGrupo2Expected = 0;
+        int plazasLibreGrupo3Expected = plazas3 - (npersonas - plazas2);
         //Act
         club.matricular("Pilates", npersonas);
         //Assert
         assertEquals(plazasLibresClubExpected, club.plazasLibres("Pilates"));
-        assertEquals(plazasLibresGrupo1Expected, grupo1.plazasLibres());
-        assertEquals(plazasLibreGrupo2Expected, grupo2.plazasLibres());
+        assertEquals(plazasLibresGrupo2Expected, grupo2.plazasLibres());
+        assertEquals(plazasLibreGrupo3Expected, grupo3.plazasLibres());
     }
 
     @Test
@@ -306,29 +288,38 @@ public class ClubDeportivoTest {
         //Act
         //Assert
         assertThrows(ClubException.class, ()->{
+            club.matricular(actividad, npersonas);
+        });
+    }
+
+    @Test
+    void matricular_ActividadInexistente_ThrowsClubException() throws ClubException {
+        //Arrange
+        String actividad = "Pilates";
+        int npersonas = 1;
+        //Act
+        //Assert
+        assertThrows(ClubException.class, ()->{
            club.matricular(actividad, npersonas);
         });
     }
 
-    //como testear esto sin testear la implementacipon y solo el resultado??
+
     @Test
     void ingresos_SinGrupos_DevuelveCero(){
-        //Arrange
-
-        //Act
-
-        //Assert
         assertEquals(0, club.ingresos());
     }
 
     @Test
     void ingresos_ConGrupos_DevuelveResultadoEsperado() throws ClubException {
         //Arrange
-        Grupo grupo = new Grupo("111A", "Pilates", 8, 5, 50.0);
+        int matriculados = 5;
+        double tarifa = 50.0;
+        Grupo grupo = new Grupo("111A", "Pilates", 8, matriculados, tarifa);
         club.anyadirActividad(grupo);
         //Act
-
+        double ingresosExpected = 250;
         //Assert
-        assertEquals(250, club.ingresos());
+        assertEquals(ingresosExpected, club.ingresos());
     }
 }

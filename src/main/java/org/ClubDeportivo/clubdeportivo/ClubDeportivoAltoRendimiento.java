@@ -1,6 +1,9 @@
 package org.ClubDeportivo.clubdeportivo;
 
-
+/**
+ * @author Marta Granado Rodríguez
+ * @author José Ángel Bueno Ruiz
+ */
 public class ClubDeportivoAltoRendimiento extends ClubDeportivo{
 	private int maximoPersonasGrupo;
 	private double incremento;
@@ -38,7 +41,7 @@ public class ClubDeportivoAltoRendimiento extends ClubDeportivo{
 			}
 			Grupo g = new Grupo(datos[0], datos[1], plazas, matriculados, tarifa);
 			super.anyadirActividad(g);
-		} catch (NumberFormatException e) {
+		} catch (NumberFormatException | NullPointerException e) {
 			throw new ClubException("ERROR: formato de número incorrecto");
 		}
 	}
