@@ -1,7 +1,5 @@
 package org.ClubDeportivo.clubdeportivo;
 
-import org.ClubDeportivo.clubdeportivo.ClubDeportivo;
-import org.ClubDeportivo.clubdeportivo.ClubException;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -171,19 +169,7 @@ public class ClubDeportivoTest {
     }
 
     @Test
-    void plazasLibres_ActividadExistente_DevuelveMayorOIgualACero() throws ClubException {
-        //Arrange
-        Grupo grupo1 = new Grupo("111A", "Pilates", 8, 5, 50.0);
-        club.anyadirActividad(grupo1);
-        Grupo grupo2 = new Grupo("111B", "Pilates", 8, 0, 50.0);
-        club.anyadirActividad(grupo2);
-        //Act
-        int plazasLibresActual = club.plazasLibres("Pilates");
-        //Assert
-        assertTrue(0 <= plazasLibresActual);
-    }
-    @Test
-    void plazasLibres_ActividadExistente_DevuelveResultadoEsperado() throws ClubException {//ESTE TEST SERIA CORRECTO O SE CONSIDERA QUE COMPRUEBA LA IMPLEMENTACIÓN
+    void plazasLibres_ActividadExistente_DevuelveResultadoEsperado() throws ClubException {
         //Arrange
         int nplazas = 8;
         int matriculados = 5;
@@ -195,7 +181,6 @@ public class ClubDeportivoTest {
         //Assert
         assertEquals(plazasLibresExpected, plazasLibresActual);
     }
-
 
     @Test
     void plazasLibres_ActividadNull_ThrowsClubException(){
@@ -324,8 +309,8 @@ public class ClubDeportivoTest {
         Grupo grupo = new Grupo("111A", "Pilates", 8, matriculados, tarifa);
         club.anyadirActividad(grupo);
         //Act
-        double ingeresosExpected = matriculados * tarifa;
+        double ingresosExpected = 250;
         //Assert
-        assertEquals(ingeresosExpected, club.ingresos());
+        assertEquals(ingresosExpected, club.ingresos());
     }
 }
