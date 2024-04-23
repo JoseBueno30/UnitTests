@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="313d11be-63a4-4013-a11e-2ee0aadafb15" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\jabr3\OneDrive\Ing. Software\3º\Mantenimiento y Pruebas del Software\UnitTests\htmlReport" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2dJMMLG8nQtkaAvvz6zkyVu4NVA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BankMain.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BankAccountTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ClubDeportivoAltoRendimientoTest.anyadirActividad_DatosNulos_ThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoAltoRendimientoTest.anyadirActividad_PlaazasSuperanMaximo_AnyadeGrupoAlClubConPlazasLimite.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoAltoRendimientoTest.constructorClubDeportivoAltoRendimineto_DatosValidos_CreaClubCorrectamente.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoAltoRendimientoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ClubDeportivoAltoRendimientoTest.ingresos_ConGrupos_DevuelveResultadoEsperado.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ClubDeportivoAltoRendimientoTest.ingresos_SinGrupos_DevuelveCero.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoCoverageTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ClubDeportivoTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest,anyadirActividad_DatosNulos_ThrowsClubException and 1 more.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.anyadirActividad_DatosInvalidos_ThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.anyadirActividad_DatosNulos_ThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.anyadirActividad_FormatoDatosIncorrecto_ThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.anyadirActividad_GrupoExistente_DoesNotThrowClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.anyadirActividad_NPlazasCero_ThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.anyadirActividad_NumeroMenorDeDatos_ThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.anyadirActividad_ValoresCero_ThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.anyadirActividad_ValoresDecimales_ThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.anyadirActividad_ValoresNegativos_ThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.constructorClubDeportivo_DatosInvalidos_ThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.constructorClubDeportivo_NumeroDeGruposNegativo_ThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.constructorClubDeportivo_NumeroDeGruposPositivo_CreaClubCorrectamente.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.constructorClubDeportivo_NumeroDeGruposPositivo_DoesNotThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.ingresos_ConGrupos_DevuelveResultadoEsperado.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.matricular_Actividadinexistente_ThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.matricular_NPersonasConPlazasDisponiblesEnVariosGrupos_ReduceNPlazasDisponibles.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.matricular_NPersonasConPlazasDisponibles_ReduceNPlazasDisponibles.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.matricular_NPersonasSinPlazasDisponibles_ThrowsClubException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.plazasLibres_ActividadExistente_DevuelveMayorOIgualACero.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTest.toString_DevuelveResultadoEsperado.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClubDeportivoTestJacoco.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.FullTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.GrupoTest.constructorGrupo_CreaGrupoCorrectamente.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GrupoTest.constructorGrupo_ValoresNulos_ThrowsClubException.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.GrupoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.GrupoTest.matricular_DevuelveValorCorrecto.executor&quot;: &quot;Coverage&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jabr3/Documents/GitHub/TestsPracticas/DobleLinkedList_P2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jabr3\OneDrive\Ing. Software\3º\Mantenimiento y Pruebas del Software\UnitTests\src\test\java\org\ClubDeportivo" />
+      <recent name="C:\Users\jabr3\OneDrive\Ing. Software\3º\Mantenimiento y Pruebas del Software\UnitTests\src\BankAccount" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jabr3\OneDrive\Ing. Software\3º\Mantenimiento y Pruebas del Software\UnitTests\src\test\java\org\ClubDeportivo" />
+      <recent name="C:\Users\jabr3\OneDrive\Ing. Software\3º\Mantenimiento y Pruebas del Software\UnitTests\src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.ClubDeportivo.clubdeportivo" />
+      <recent name="org.ClubDeportivo" />
+      <recent name="org.bank" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.FullTest">
+    <configuration name="ClubDeportivoTest" type="JUnit" factoryName="JUnit">
+      <module name="UnitTests" />
+      <option name="PACKAGE_NAME" value="org.bank" />
+      <option name="MAIN_CLASS_NAME" value="org.bank.BankAccountTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClubDeportivoTestJacoco" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="UnitTests" />
+      <extension name="coverage" runner="jacoco">
+        <pattern>
+          <option name="PATTERN" value="org.ClubDeportivo.ClubDeportivoMain" />
+          <option name="ENABLED" value="false" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="org.ClubDeportivo.clubdeportivo.ClubException" />
+          <option name="ENABLED" value="false" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="org.ClubDeportivo.clubdeportivo.*" />
+          <option name="ENABLED" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="org.ClubDeportivo.clubdeportivo.ClubDeportivo" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ClubDeportivo.clubdeportivo" />
+      <option name="MAIN_CLASS_NAME" value="org.ClubDeportivo.clubdeportivo.ClubDeportivoTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClubDeportivoTest.anyadirActividad_DatosNulos_ThrowsClubException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="UnitTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ClubDeportivo.clubdeportivo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ClubDeportivo.clubdeportivo" />
+      <option name="MAIN_CLASS_NAME" value="org.ClubDeportivo.clubdeportivo.ClubDeportivoTest" />
+      <option name="METHOD_NAME" value="anyadirActividad_DatosNulos_ThrowsClubException(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FullTest" type="JUnit" factoryName="JUnit">
+      <module name="UnitTests" />
+      <extension name="coverage" runner="jacoco">
+        <pattern>
+          <option name="PATTERN" value="org.ClubDeportivo.clubdeportivo.ClubDeportivo" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="org.ClubDeportivo.clubdeportivo.ClubDeportivoAltoRendimiento" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="org.ClubDeportivo.clubdeportivo.Grupo" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ClubDeportivo.clubdeportivo" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GrupoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="UnitTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ClubDeportivo.clubdeportivo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ClubDeportivo.clubdeportivo" />
+      <option name="MAIN_CLASS_NAME" value="org.ClubDeportivo.clubdeportivo.GrupoTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GrupoTest.constructorGrupo_ValoresNulos_ThrowsClubException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="UnitTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ClubDeportivo.clubdeportivo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ClubDeportivo.clubdeportivo" />
+      <option name="MAIN_CLASS_NAME" value="org.ClubDeportivo.clubdeportivo.GrupoTest" />
+      <option name="METHOD_NAME" value="constructorGrupo_ValoresNulos_ThrowsClubException(java.lang.String,java.lang.String,int,int,double)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GrupoTest.matricular_DevuelveValorCorrecto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="UnitTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ClubDeportivo.clubdeportivo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.ClubDeportivo.clubdeportivo" />
+      <option name="MAIN_CLASS_NAME" value="org.ClubDeportivo.clubdeportivo.GrupoTest" />
+      <option name="METHOD_NAME" value="matricular_DevuelveValorCorrecto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.ClubDeportivoTest" />
+      <item itemvalue="JUnit.FullTest" />
+      <item itemvalue="JUnit.ClubDeportivoTest.anyadirActividad_DatosNulos_ThrowsClubException" />
+      <item itemvalue="JUnit.GrupoTest" />
+      <item itemvalue="JUnit.GrupoTest.constructorGrupo_ValoresNulos_ThrowsClubException" />
+      <item itemvalue="JUnit.GrupoTest.matricular_DevuelveValorCorrecto" />
+      <item itemvalue="JUnit.ClubDeportivoTestJacoco" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ClubDeportivoTestJacoco" />
+        <item itemvalue="JUnit.GrupoTest" />
+        <item itemvalue="JUnit.GrupoTest.constructorGrupo_ValoresNulos_ThrowsClubException" />
+        <item itemvalue="JUnit.GrupoTest.matricular_DevuelveValorCorrecto" />
+        <item itemvalue="JUnit.ClubDeportivoTest.anyadirActividad_DatosNulos_ThrowsClubException" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="313d11be-63a4-4013-a11e-2ee0aadafb15" name="Changes" comment="" />
+      <created>1709721681462</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709721681462</updated>
+      <workItem from="1709721682446" duration="3341000" />
+      <workItem from="1709888985248" duration="1897000" />
+      <workItem from="1709924550737" duration="670000" />
+      <workItem from="1710153176740" duration="58000" />
+      <workItem from="1710409998281" duration="24712000" />
+      <workItem from="1710784747157" duration="369000" />
+      <workItem from="1710841764795" duration="3247000" />
+      <workItem from="1710845851726" duration="7000" />
+      <workItem from="1710845922584" duration="8000" />
+      <workItem from="1710875013436" duration="34000" />
+      <workItem from="1711014787336" duration="5048000" />
+      <workItem from="1711133600699" duration="649000" />
+      <workItem from="1711531763786" duration="134000" />
+      <workItem from="1712220361722" duration="31000" />
+      <workItem from="1712657164328" duration="426000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/UnitTests$ClubDeportivoAltoRendimientoTest_ingresos_ConGrupos_DevuelveResultadoEsperado.ic" NAME="ClubDeportivoAltoRendimientoTest.ingresos_ConGrupos_DevuelveResultadoEsperado Coverage Results" MODIFIED="1711015494888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.ClubDeportivo.clubdeportivo.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/UnitTests$FullTest.exec" NAME="FullTest Coverage Results" MODIFIED="1711019211801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.ClubDeportivo.clubdeportivo.ClubDeportivo</FILTER>
+      <FILTER>org.ClubDeportivo.clubdeportivo.ClubDeportivoAltoRendimiento</FILTER>
+      <FILTER>org.ClubDeportivo.clubdeportivo.Grupo</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/UnitTests$GrupoTest.ic" NAME="GrupoTest Coverage Results" MODIFIED="1711017807341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.ClubDeportivo.clubdeportivo.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/UnitTests$GrupoTest_constructorGrupo_ValoresNulos_ThrowsClubException.ic" NAME="GrupoTest.constructorGrupo_ValoresNulos_ThrowsClubException Coverage Results" MODIFIED="1711017797737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.ClubDeportivo.clubdeportivo.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/UnitTests$BankAccountTest.ic" NAME="BankAccountTest Coverage Results" MODIFIED="1709890481404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.bank.BankAccount</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/UnitTests$ClubDeportivoAltoRendimientoTest.ic" NAME="ClubDeportivoAltoRendimientoTest Coverage Results" MODIFIED="1711015505062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.ClubDeportivo.clubdeportivo.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/UnitTests$BankAccountTest.exec" NAME="BankAccountTest Coverage Results" MODIFIED="1709924949765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.bank.BankAccount</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/UnitTests$ClubDeportivoTestJacoco.exec" NAME="ClubDeportivoTestJacoco Coverage Results" MODIFIED="1711018958145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.ClubDeportivo.clubdeportivo.ClubDeportivo</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/UnitTests$ClubDeportivoCoverageTest.ic" NAME="ClubDeportivoCoverageTest Coverage Results" MODIFIED="1710511228923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.ClubDeportivo.clubdeportivo.ClubDeportivo</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/UnitTests$ClubDeportivoTest__1_.ic" NAME="ClubDeportivoTest (1) Coverage Results" MODIFIED="1710783878198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.ClubDeportivo.clubdeportivo.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/UnitTests$GrupoTest_matricular_DevuelveValorCorrecto.ic" NAME="GrupoTest.matricular_DevuelveValorCorrecto Coverage Results" MODIFIED="1711017599428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.ClubDeportivo.clubdeportivo.*</FILTER>
+    </SUITE>
+  </component>
+</project>
